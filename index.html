@@ -47,7 +47,7 @@
 <link rel="preload" href="assets/fonts/manrope-var-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="assets/fonts/karla-400-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="assets/css/fonts.css?v=48">
-<link rel="stylesheet" href="assets/css/styles.css?v=58">
+<link rel="stylesheet" href="assets/css/styles.css?v=60">
 </head>
 <body data-glow-proto>
 <a class="skip-link" href="#inhalt">Zum Inhalt springen</a>
@@ -114,7 +114,7 @@
         </ul>
       </div>
       <div class="device-frame">
-        <picture><source srcset="assets/img/shot-exercises.avif" type="image/avif"><img src="assets/img/shot-exercises.jpg" alt="Anamovo auf dem iPhone: Übung „Ground Calm" mit Atem-Ring und 5-Minuten-Timer." loading="lazy" width="414" height="900"></picture>
+        <picture><source srcset="assets/img/shot-exercises.avif?v=2" type="image/avif"><img src="assets/img/shot-exercises.jpg?v=2" alt="Anamovo auf dem iPhone: Übung „Grundruhe" mit Atem-Ring und 5-Minuten-Timer." loading="lazy" width="414" height="900"></picture>
       </div>
     </div>
   </section>
@@ -131,13 +131,18 @@
           <li><svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10.5L8 14.5L16 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Kein medizinisches Gerät — reine Achtsamkeits-Rückmeldung</span></li>
         </ul>
       </div>
-      <div class="pulse-panel" aria-hidden="true">
-        <svg viewBox="0 0 400 120" preserveAspectRatio="none">
-          <path class="pulse-line" d="M0,60 L40,60 L55,45 L70,75 L85,15 L100,100 L115,55 L140,60 L180,60 L195,50 L210,68 L225,60 L260,60 L300,60 L315,45 L330,75 L345,15 L360,100 L375,55 L400,60"/>
-        </svg>
-        <div class="pulse-devices">
-          <span><span class="swatch"></span>Apple Watch</span>
-          <span><span class="swatch"></span>AirPods Pro 3</span>
+      <div class="pulse-composition">
+        <div class="device-frame">
+          <picture><source srcset="assets/img/shot-heartrate.avif" type="image/avif"><img src="assets/img/shot-heartrate.jpg" alt="Anamovo auf dem iPhone: laufende Übung mit Live-Herzfrequenz (63 bpm) über Apple Watch." loading="lazy" width="414" height="900"></picture>
+        </div>
+        <div class="pulse-panel" aria-hidden="true">
+          <svg viewBox="0 0 400 120" preserveAspectRatio="none">
+            <path class="pulse-line" d="M0,60 L40,60 L55,45 L70,75 L85,15 L100,100 L115,55 L140,60 L180,60 L195,50 L210,68 L225,60 L260,60 L300,60 L315,45 L330,75 L345,15 L360,100 L375,55 L400,60"/>
+          </svg>
+          <div class="pulse-devices">
+            <span><span class="swatch"></span>Apple Watch</span>
+            <span><span class="swatch"></span>AirPods Pro 3</span>
+          </div>
         </div>
       </div>
     </div>
@@ -146,25 +151,52 @@
   <section class="feature">
     <div class="container">
       <div>
-        <p class="eyebrow">Farbthemes</p>
-        <h2>Ein Licht, das zu dir passt.</h2>
-        <p class="lede">Wähle aus mehreren Farbthemes, die den Himmel hinter der App verändern — und mit ihm auch die Hintergrundmusik. Probier es gleich hier aus:</p>
-        <div class="theme-swatches" role="group" aria-label="Farbtheme-Vorschau">
-          <button class="theme-swatch" type="button" style="background:#A9C9E3" data-theme-color="#dceaf6" data-theme-color-2="#a9c9e3" aria-pressed="true" aria-label="Theme Himmelblau"></button>
-          <button class="theme-swatch" type="button" style="background:#8FD9C4" data-theme-color="#dff5ee" data-theme-color-2="#8fd9c4" aria-pressed="false" aria-label="Theme Minze"></button>
-          <button class="theme-swatch" type="button" style="background:#B7D3A0" data-theme-color="#e9f2df" data-theme-color-2="#b7d3a0" aria-pressed="false" aria-label="Theme Salbei"></button>
-          <button class="theme-swatch" type="button" style="background:#C9BEEA" data-theme-color="#efeafa" data-theme-color-2="#c9beea" aria-pressed="false" aria-label="Theme Lavendel"></button>
-          <button class="theme-swatch" type="button" style="background:#2C3B63" data-theme-color="#3d4f80" data-theme-color-2="#151d33" aria-pressed="false" aria-label="Theme Nacht"></button>
-          <button class="theme-swatch" type="button" style="background:#F1E8D6" data-theme-color="#faf5ea" data-theme-color-2="#f1e8d6" aria-pressed="false" aria-label="Theme Sand"></button>
-        </div>
+        <p class="eyebrow">Apple Watch</p>
+        <h2>Eigenständig am Handgelenk.</h2>
+        <p class="lede">Übungen synchronisieren sich automatisch auf deine Apple&nbsp;Watch — starte sie direkt dort, ganz ohne iPhone in der Nähe. Danach landet die Sitzung automatisch wieder im Kalender auf dem iPhone.</p>
+        <ul class="feature-list">
+          <li><svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10.5L8 14.5L16 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Übungen synchronisieren automatisch vom iPhone</span></li>
+          <li><svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10.5L8 14.5L16 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Atem-Ring mit Haptik direkt am Handgelenk</span></li>
+          <li><svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10.5L8 14.5L16 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Läuft die Übung stattdessen auf dem iPhone, zeigt die Watch live deinen Puls</span></li>
+        </ul>
       </div>
-      <div class="device-frame theme-demo" data-theme-demo>
-        <picture><source srcset="assets/img/shot-themes.avif" type="image/avif"><img src="assets/img/shot-themes.jpg" alt="Anamovo Einstellungen: sechs wählbare Farbthemes sowie Optionen für Hintergrundmusik, Haptik und Erinnerungen." loading="lazy" width="414" height="900"></picture>
+      <div class="watch-frame-row">
+        <div class="watch-frame">
+          <picture><source srcset="assets/img/shot-watch-list.avif" type="image/avif"><img src="assets/img/shot-watch-list.jpg" alt="Anamovo auf der Apple Watch: Liste der vom iPhone synchronisierten Übungen." loading="lazy" width="300" height="367"></picture>
+        </div>
+        <div class="watch-frame">
+          <picture><source srcset="assets/img/shot-watch-run.avif" type="image/avif"><img src="assets/img/shot-watch-run.jpg" alt="Anamovo auf der Apple Watch: laufende Atemübung mit Ring und Live-Herzfrequenz, eigenständig ohne iPhone." loading="lazy" width="300" height="367"></picture>
+        </div>
+        <div class="watch-frame">
+          <picture><source srcset="assets/img/shot-watch-companion.avif" type="image/avif"><img src="assets/img/shot-watch-companion.jpg" alt="Apple Watch als Puls-Begleitanzeige, während eine Übung auf dem iPhone läuft." loading="lazy" width="300" height="367"></picture>
+        </div>
       </div>
     </div>
   </section>
 
   <section class="feature reverse">
+    <div class="container">
+      <div>
+        <p class="eyebrow">Farbthemes</p>
+        <h2>Ein Licht, das zu dir passt.</h2>
+        <p class="lede">Wähle aus mehreren Farbthemes, die den Himmel hinter der App verändern — und mit ihm auch die Hintergrundmusik. Probier es gleich hier aus:</p>
+        <div class="theme-swatches" role="group" aria-label="Farbtheme-Vorschau">
+          <button class="theme-swatch" type="button" style="background:#A5CFFF" data-theme-color="#e0efff" data-theme-color-2="#a5cfff" aria-pressed="true" aria-label="Theme Himmelblau"></button>
+          <button class="theme-swatch" type="button" style="background:#7ED4C1" data-theme-color="#d3f0ea" data-theme-color-2="#7ed4c1" aria-pressed="false" aria-label="Theme Türkis"></button>
+          <button class="theme-swatch" type="button" style="background:#B8E6C2" data-theme-color="#e7f6ea" data-theme-color-2="#b8e6c2" aria-pressed="false" aria-label="Theme Minze"></button>
+          <button class="theme-swatch" type="button" style="background:#C7B7F5" data-theme-color="#ece7fc" data-theme-color-2="#c7b7f5" aria-pressed="false" aria-label="Theme Lavendel"></button>
+          <button class="theme-swatch" type="button" style="background:#2F3C5D" data-theme-color="#767e94" data-theme-color-2="#181e2e" aria-pressed="false" aria-label="Theme Nacht"></button>
+          <button class="theme-swatch" type="button" style="background:#F2E3C6" data-theme-color="#fbf5ec" data-theme-color-2="#f2e3c6" aria-pressed="false" aria-label="Theme Sand"></button>
+          <button class="theme-swatch" type="button" style="background:#FFB38A" data-theme-color="#ffe5d7" data-theme-color-2="#ffb38a" aria-pressed="false" aria-label="Theme Koralle"></button>
+        </div>
+      </div>
+      <div class="device-frame theme-demo" data-theme-demo>
+        <picture><source srcset="assets/img/shot-themes.avif?v=2" type="image/avif"><img src="assets/img/shot-themes.jpg?v=2" alt="Anamovo Einstellungen: sieben wählbare Farbthemes sowie Optionen für Hintergrundmusik, Haptik und Erinnerungen." loading="lazy" width="414" height="900"></picture>
+      </div>
+    </div>
+  </section>
+
+  <section class="feature">
     <div class="container">
       <div>
         <p class="eyebrow">Erinnerungen &amp; Verlauf</p>
@@ -176,8 +208,13 @@
           <li><svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10.5L8 14.5L16 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Alle Daten ausschließlich auf deinem Gerät</span></li>
         </ul>
       </div>
-      <div class="device-frame">
-        <picture><source srcset="assets/img/shot-sessions.avif" type="image/avif"><img src="assets/img/shot-sessions.jpg" alt="Anamovo Sitzungskalender für Januar mit Übersicht der durchgeführten Übungen pro Tag." loading="lazy" width="414" height="900"></picture>
+      <div class="session-composition">
+        <div class="device-frame">
+          <picture><source srcset="assets/img/shot-sessions.avif?v=2" type="image/avif"><img src="assets/img/shot-sessions.jpg?v=2" alt="Anamovo Sitzungskalender mit Übersicht der durchgeführten Übungen inklusive Herzfrequenz pro Sitzung — auch eigenständig auf der Apple Watch absolviert." loading="lazy" width="414" height="900"></picture>
+        </div>
+        <div class="device-frame">
+          <picture><source srcset="assets/img/shot-sessions-chart.avif?v=6" type="image/avif"><img src="assets/img/shot-sessions-chart.jpg?v=6" alt="Anamovo Herzfrequenz-Auswertung einer Sitzung: Verlauf, Min/Ø/Max und geschätzte HRV." loading="lazy" width="414" height="900"></picture>
+        </div>
       </div>
     </div>
   </section>

@@ -147,13 +147,20 @@ button { font: inherit; }
 /* ==========================================================================
    Nav
    ========================================================================== */
+/* Always dark/pine, on every page (2026-08-20) — it used to switch to a
+   light variant on pages with no .hero (legal, 404) via body:has(.hero),
+   which read as inconsistent jumping between pages.
+   Fully opaque, no backdrop-filter (2026-08-20, after trying a glass/blur
+   variant and a solid-top/translucent-bottom hybrid): settled back on
+   solid. Also sidesteps the macOS Safari 15+ quirk where backdrop-filter
+   here lets Safari's own toolbar tint itself by sampling blended color. */
 .site-nav {
   position: sticky;
   top: 0;
   z-index: 40;
   padding: var(--space-2) 0;
-  background: linear-gradient(to bottom, rgba(233, 241, 250, 0.92), rgba(233, 241, 250, 0.7) 70%, transparent);
-  backdrop-filter: blur(10px);
+  background: linear-gradient(180deg, #1c3634, var(--pine-shadow) 70%);
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.06), 0 -100vh 0 0 var(--pine-shadow);
 }
 .site-nav .container {
   display: flex;
@@ -169,7 +176,7 @@ button { font: inherit; }
   font-weight: 600;
   font-size: 1.15rem;
   text-decoration: none;
-  color: var(--ink);
+  color: var(--dawn);
 }
 .wordmark .icon-mark { width: 34px; height: 34px; border-radius: 50%; flex-shrink: 0; display: block; }
 
@@ -188,13 +195,18 @@ button { font: inherit; }
   text-decoration: none;
   padding: 0.3rem 0.55rem;
   border-radius: var(--radius-s);
-  color: var(--ink-soft);
+  color: rgba(233, 241, 250, 0.75);
+  min-width: 44px;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 .lang-switch a[aria-current="true"] {
   background: var(--pine-shadow);
   color: var(--dawn);
 }
-.lang-switch a:not([aria-current="true"]):hover { background: rgba(19, 39, 38, 0.08); }
+.lang-switch a:not([aria-current="true"]):hover { background: rgba(255, 255, 255, 0.12); }
 
 .pill-badge {
   display: inline-flex;
@@ -228,9 +240,13 @@ button { font: inherit; }
    cropped sliver; the full-bleed treatment gives the art room to breathe. */
 .hero {
   position: relative;
-  padding-top: var(--space-4);
+  padding-top: var(--space-3);
+  /* Scrim raised from 0.22->0.7 to 0.6->0.82 (2026-08-20): the fog art's own
+     bright sky-glow sits directly behind the eyebrow/H1/lede, and the old
+     top-of-gradient value left that text under 3:1 contrast there — measured
+     via real pixel sampling of the rendered background, not guessed. */
   background:
-    linear-gradient(180deg, rgba(8, 20, 19, 0.22) 0%, rgba(8, 20, 19, 0.7) 100%),
+    linear-gradient(180deg, rgba(8, 20, 19, 0.6) 0%, rgba(8, 20, 19, 0.82) 100%),
     url('../svg/hero-fog.svg') center bottom / cover no-repeat;
 }
 .hero .eyebrow { color: rgba(233, 241, 250, 0.75); }
@@ -248,31 +264,6 @@ button { font: inherit; }
 .hero .breath-label { color: var(--dawn); }
 .hero .breath-hint { color: rgba(233, 241, 250, 0.65); }
 
-/* Nav adapts when it sits over the dark fog hero (fixes the light nav bar
-   tearing visibly across the image on scroll). Scoped via :has() so the
-   nav needs no class of its own — it just reacts to what's below it, and
-   stays in its original light styling on pages with no .hero (legal, 404). */
-body:has(.hero) .site-nav {
-  /* Fully opaque, no backdrop-filter: macOS Safari 15+ tints its own
-     toolbar by sampling the actually-rendered color under it, including
-     through backdrop-filter translucency — any blur/alpha here let Safari
-     pick up a lighter blended color than intended and show a visible seam
-     against the nav's own gradient (confirmed fixed by the user 2026-08-18).
-     The gradient below uses two solid opaque stops, not alpha — a subtle
-     "lit bezel" sheen like the device frame, with nothing for Safari to
-     blend through. */
-  background: linear-gradient(180deg, #1c3634, var(--pine-shadow) 70%);
-  backdrop-filter: none;
-  /* Two shadows in one declaration — a second box-shadow property on the
-     same selector would just overwrite this one, not add to it: (1) a
-     hairline highlight along the bottom edge for a bit of lift/definition;
-     (2) a huge blur-free upward fill (see note below) that pre-covers the
-     elastic-overscroll gap above the page with solid pine-shadow. */
-  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.06), 0 -100vh 0 0 var(--pine-shadow);
-}
-body:has(.hero) .wordmark { color: var(--dawn); }
-body:has(.hero) .lang-switch a { color: rgba(233, 241, 250, 0.75); }
-body:has(.hero) .lang-switch a:not([aria-current="true"]):hover { background: rgba(255, 255, 255, 0.12); }
 /* Elastic/rubber-band overscroll (macOS trackpads) briefly reveals the
    canvas above the page. html-background propagation (the "textbook" fix)
    turned out unreliable in practice — the nav's own box-shadow above is
@@ -302,7 +293,7 @@ body[data-dark-proto] .platform-row svg { color: rgba(233, 241, 250, 0.75); }
 
 .hero-inner {
   text-align: center;
-  padding-bottom: var(--space-4);
+  padding-bottom: var(--space-3);
 }
 .hero h1 {
   font-size: clamp(2.8rem, 7.2vw, 5.4rem);
@@ -352,7 +343,7 @@ body[data-dark-proto] .platform-row svg { color: rgba(233, 241, 250, 0.75); }
 
 /* ---- Breathing ring (signature element) ---- */
 .breath-stage {
-  margin: var(--space-4) auto 0;
+  margin: var(--space-3) auto 0;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -362,6 +353,18 @@ body[data-dark-proto] .platform-row svg { color: rgba(233, 241, 250, 0.75); }
   position: relative;
   width: min(360px, 74vw);
   aspect-ratio: 1;
+}
+/* Short laptop viewports (~800px browser height and under) otherwise clip
+   the ring below the fold — DESIGN.md calls it the hero's calm focal point,
+   so it should clear the fold on ordinary laptops, not just tall/mobile
+   viewports where the vw-based sizing above already keeps it compact. */
+@media (max-height: 820px) {
+  .breath-ring-wrap { width: min(220px, 50vw); }
+  .breath-stage { margin-top: var(--space-2); gap: 0.6rem; }
+  .breath-hint { font-size: 0.72rem; }
+  .hero { padding-top: var(--space-2); }
+  .hero-inner { padding-bottom: var(--space-2); }
+  .hero-actions { margin-top: var(--space-2); }
 }
 .breath-ring-wrap svg { width: 100%; height: 100%; overflow: visible; }
 .breath-track { fill: none; stroke: rgba(16, 32, 31, 0.22); stroke-width: 2.5; }
@@ -577,14 +580,25 @@ body[data-dark-proto] .platform-row svg { color: rgba(233, 241, 250, 0.75); }
    themes recolor the sky behind the exercise — a soft aura, not a bezel tint. */
 /* Picking a theme recolours the sky *inside* the phone screen (the top band),
    exactly where the app's own theme gradient lives — not a glow outside it.
-   The physical notch (::before, z-index 2) stays above this tint (z-index 1). */
+   Runs from the screen's true top edge (2026-08-20, confirmed against real
+   device screenshots of the app itself): the real app's theme color fills
+   the entire screen seamlessly, status bar included.
+   top/left/right are 11px — that's the screen's own inset from the
+   device-frame's outer edge (the 11px bezel), the containing block for every
+   absolutely-positioned layer here. top:0 was measured from the frame's
+   outer edge, not the screen, and bled onto the bezel corners.
+   The status-bar icons (clock, notch, wifi, battery) sit on their own
+   layer, .theme-demo-icons — a cutout of just those pixels on a transparent
+   background (colorkeyed out of the same screenshot), z-index 2, above this
+   tint. That's what keeps them crisp at any opacity/theme color instead of
+   either a permanently-wrong-colored solid band (tried and reverted: real
+   iOS has no such band) or a low-opacity tint that washes them out on pale
+   themes like Sand. Opacity can stay high (0.85) because the icons no
+   longer depend on it for legibility. */
 .theme-demo::after {
   content: "";
   position: absolute;
-  /* Starts below the status bar / Dynamic Island baked into the real
-     screenshot (roughly 11px bezel + ~33px of pill) so the tint never
-     washes it out to gray — that pill is system chrome, not app sky. */
-  top: 44px;
+  top: 11px;
   left: 11px;
   right: 11px;
   height: 34%;
@@ -603,8 +617,25 @@ body[data-dark-proto] .platform-row svg { color: rgba(233, 241, 250, 0.75); }
   pointer-events: none;
   transition: opacity 0.5s var(--ease);
 }
-@media (prefers-reduced-motion: reduce) {
-  .theme-demo::after { transition: none; }
+.theme-demo-icons {
+  position: absolute;
+  top: 11px;
+  left: 11px;
+  width: calc(100% - 22px);
+  height: auto;
+  z-index: 2;
+  border-top-left-radius: 32px;
+  border-top-right-radius: 32px;
+  pointer-events: none;
+  /* The image content (icons) only occupies the top ~40% of this asset —
+     everything below is transparent padding, added so the layer's own
+     bottom edge falls out of view. But a hard rectangular edge is still a
+     hard edge: stacking it over the tint/photo layers produces a hairline
+     seam wherever it sits, from sub-pixel rounding between layers, not from
+     anything in the image itself. Masking the last stretch to transparent
+     removes the edge itself instead of relocating it. */
+  -webkit-mask-image: linear-gradient(to bottom, black 0%, black 75%, transparent 100%);
+  mask-image: linear-gradient(to bottom, black 0%, black 75%, transparent 100%);
 }
 @media (prefers-reduced-motion: reduce) {
   .theme-demo::after { transition: none; }
@@ -626,6 +657,12 @@ body[data-dark-proto] .platform-row svg { color: rgba(233, 241, 250, 0.75); }
 }
 .theme-swatch:hover, .theme-swatch:focus-visible { transform: scale(1.12); }
 .theme-swatch[aria-pressed="true"] { outline: 2.5px solid var(--pine-shadow); outline-offset: 3px; }
+.theme-swatch-label {
+  margin-top: var(--space-2);
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+}
 
 /* ==========================================================================
    Privacy manifesto (full-bleed dark)

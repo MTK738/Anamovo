@@ -47,7 +47,7 @@
 <link rel="preload" href="../assets/fonts/manrope-var-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="../assets/fonts/karla-400-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="../assets/css/fonts.css?v=46">
-<link rel="stylesheet" href="../assets/css/styles.css?v=60">
+<link rel="stylesheet" href="../assets/css/styles.css?v=74">
 </head>
 <body data-glow-proto>
 <a class="skip-link" href="#content">Skip to content</a>
@@ -106,7 +106,7 @@
       <div>
         <p class="eyebrow">Exercises</p>
         <h2>Ready-made exercises — and your own.</h2>
-        <p class="lede">Start with carefully designed exercises like “Ground Calm” or “Focus Box”, or build your own breathing rhythm, duration and cycles at your own pace.</p>
+        <p class="lede">Start with carefully designed exercises like “Ground Calm” or “Focus Box” (4-4-4-4 box breathing), or build your own breathing rhythm, duration and cycles at your own pace.</p>
         <ul class="feature-list">
           <li><svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10.5L8 14.5L16 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Curated exercises for relaxation, focus and stress relief</span></li>
           <li><svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10.5L8 14.5L16 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Your own pace, duration and cycles</span></li>
@@ -181,17 +181,19 @@
         <h2>A light that fits your mood.</h2>
         <p class="lede">Choose from several color themes that change the sky behind the app — and the background music along with it. Try it right here:</p>
         <div class="theme-swatches" role="group" aria-label="Color theme preview">
-          <button class="theme-swatch" type="button" style="background:#A5CFFF" data-theme-color="#e0efff" data-theme-color-2="#a5cfff" aria-pressed="true" aria-label="Sky theme"></button>
-          <button class="theme-swatch" type="button" style="background:#7ED4C1" data-theme-color="#d3f0ea" data-theme-color-2="#7ed4c1" aria-pressed="false" aria-label="Turquoise theme"></button>
-          <button class="theme-swatch" type="button" style="background:#B8E6C2" data-theme-color="#e7f6ea" data-theme-color-2="#b8e6c2" aria-pressed="false" aria-label="Mint theme"></button>
-          <button class="theme-swatch" type="button" style="background:#C7B7F5" data-theme-color="#ece7fc" data-theme-color-2="#c7b7f5" aria-pressed="false" aria-label="Lavender theme"></button>
-          <button class="theme-swatch" type="button" style="background:#2F3C5D" data-theme-color="#767e94" data-theme-color-2="#181e2e" aria-pressed="false" aria-label="Night theme"></button>
-          <button class="theme-swatch" type="button" style="background:#F2E3C6" data-theme-color="#fbf5ec" data-theme-color-2="#f2e3c6" aria-pressed="false" aria-label="Sand theme"></button>
-          <button class="theme-swatch" type="button" style="background:#FFB38A" data-theme-color="#ffe5d7" data-theme-color-2="#ffb38a" aria-pressed="false" aria-label="Coral theme"></button>
+          <button class="theme-swatch" type="button" style="background:#A5CFFF" data-theme-color="#e0efff" data-theme-color-2="#a5cfff" data-theme-name="Sky" aria-pressed="true" aria-label="Sky theme"></button>
+          <button class="theme-swatch" type="button" style="background:#7ED4C1" data-theme-color="#d3f0ea" data-theme-color-2="#7ed4c1" data-theme-name="Turquoise" aria-pressed="false" aria-label="Turquoise theme"></button>
+          <button class="theme-swatch" type="button" style="background:#B8E6C2" data-theme-color="#e7f6ea" data-theme-color-2="#b8e6c2" data-theme-name="Mint" aria-pressed="false" aria-label="Mint theme"></button>
+          <button class="theme-swatch" type="button" style="background:#C7B7F5" data-theme-color="#ece7fc" data-theme-color-2="#c7b7f5" data-theme-name="Lavender" aria-pressed="false" aria-label="Lavender theme"></button>
+          <button class="theme-swatch" type="button" style="background:#2F3C5D" data-theme-color="#767e94" data-theme-color-2="#181e2e" data-theme-name="Night" aria-pressed="false" aria-label="Night theme"></button>
+          <button class="theme-swatch" type="button" style="background:#F2E3C6" data-theme-color="#fbf5ec" data-theme-color-2="#f2e3c6" data-theme-name="Sand" aria-pressed="false" aria-label="Sand theme"></button>
+          <button class="theme-swatch" type="button" style="background:#FFB38A" data-theme-color="#ffe5d7" data-theme-color-2="#ffb38a" data-theme-name="Coral" aria-pressed="false" aria-label="Coral theme"></button>
         </div>
+        <p class="theme-swatch-label" data-theme-swatch-label aria-live="polite">Sky</p>
       </div>
       <div class="device-frame theme-demo" data-theme-demo>
         <picture><source srcset="../assets/img/shot-themes.avif?v=2" type="image/avif"><img src="../assets/img/shot-themes.jpg?v=2" alt="Anamovo settings: seven selectable color themes plus toggles for background music, haptics and reminders." loading="lazy" width="414" height="900"></picture>
+        <img class="theme-demo-icons" src="../assets/img/shot-themes-statusbar.png?v=2" alt="" aria-hidden="true" loading="lazy" width="414" height="150">
       </div>
     </div>
   </section>
@@ -287,6 +289,6 @@
   </div>
 </footer>
 
-<script src="../assets/js/main.js?v=50"></script>
+<script src="../assets/js/main.js?v=51"></script>
 </body>
 </html>

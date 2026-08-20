@@ -76,11 +76,13 @@
      nodes, matched by data attribute rather than DOM nesting. ---- */
   var demo = document.querySelector("[data-theme-demo]");
   var swatches = document.querySelectorAll("[data-theme-color]");
+  var swatchLabel = document.querySelector("[data-theme-swatch-label]");
   if (demo && swatches.length) {
     function applyTheme(btn) {
       var top = btn.getAttribute("data-theme-color");
       demo.style.setProperty("--sky-1", top);
       demo.style.setProperty("--sky-2", btn.getAttribute("data-theme-color-2") || top);
+      if (swatchLabel) swatchLabel.textContent = btn.getAttribute("data-theme-name") || "";
     }
     /* Reflect the theme pre-selected in the markup so the sky is lit on load. */
     applyTheme(document.querySelector('[data-theme-color][aria-pressed="true"]') || swatches[0]);

@@ -36,11 +36,14 @@
 
       if (core) {
         var f = into / phaseSeconds;
-        var scale = phaseIndex === 0 ? 0.95 + 0.10 * f
-                  : phaseIndex === 1 ? 1.05
-                  : phaseIndex === 2 ? 1.05 - 0.10 * f
-                  : 0.95;
+        var scale = phaseIndex === 0 ? 0.87 + 0.26 * f
+                  : phaseIndex === 1 ? 1.13
+                  : phaseIndex === 2 ? 1.13 - 0.26 * f
+                  : 0.87;
         core.style.transform = "scale(" + scale.toFixed(3) + ")";
+        /* Counter-scale the label so the text stays a constant size while
+           the blob itself grows/shrinks around it. */
+        labelEl.style.transform = "scale(" + (1 / scale).toFixed(3) + ")";
 
         /* Organic wobble: in the app itself the core isn't a clean circle —
            its edge drifts continuously in an irregular, non-repeating way.
@@ -48,15 +51,15 @@
            driving the 8-value border-radius shorthand approximate that
            without a canvas/SVG blob. Reduced amplitude under reduce-motion
            keeps this a "gentle in-place breathe" rather than restless motion. */
-        var amp = reduceMotion ? 4 : 8;
-        var r1 = 50 + amp * Math.sin(elapsed * 0.55 + 0.0);
-        var r2 = 50 + amp * Math.sin(elapsed * 0.63 + 2.1);
-        var r3 = 50 + amp * Math.sin(elapsed * 0.47 + 4.2);
-        var r4 = 50 + amp * Math.sin(elapsed * 0.58 + 1.4);
-        var r5 = 50 + amp * Math.sin(elapsed * 0.51 + 3.3);
-        var r6 = 50 + amp * Math.sin(elapsed * 0.66 + 5.0);
-        var r7 = 50 + amp * Math.sin(elapsed * 0.44 + 0.7);
-        var r8 = 50 + amp * Math.sin(elapsed * 0.60 + 2.8);
+        var amp = reduceMotion ? 4 : 13;
+        var r1 = 50 + amp * Math.sin(elapsed * 0.78 + 0.0);
+        var r2 = 50 + amp * Math.sin(elapsed * 0.90 + 2.1);
+        var r3 = 50 + amp * Math.sin(elapsed * 0.68 + 4.2);
+        var r4 = 50 + amp * Math.sin(elapsed * 0.83 + 1.4);
+        var r5 = 50 + amp * Math.sin(elapsed * 0.73 + 3.3);
+        var r6 = 50 + amp * Math.sin(elapsed * 0.94 + 5.0);
+        var r7 = 50 + amp * Math.sin(elapsed * 0.63 + 0.7);
+        var r8 = 50 + amp * Math.sin(elapsed * 0.86 + 2.8);
         core.style.borderRadius =
           r1.toFixed(1) + "% " + r2.toFixed(1) + "% " + r3.toFixed(1) + "% " + r4.toFixed(1) + "% / " +
           r5.toFixed(1) + "% " + r6.toFixed(1) + "% " + r7.toFixed(1) + "% " + r8.toFixed(1) + "%";

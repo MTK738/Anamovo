@@ -386,6 +386,7 @@ body[data-dark-proto] .platform-row svg { color: rgba(233, 241, 250, 0.75); }
   box-shadow: var(--shadow-soft);
 }
 .breath-label {
+  display: inline-block;
   font-family: var(--font-display);
   font-weight: 600;
   font-size: 1.3rem;
@@ -644,7 +645,7 @@ body[data-dark-proto] .platform-row svg { color: rgba(233, 241, 250, 0.75); }
   display: flex;
   gap: 0.85rem;
   flex-wrap: wrap;
-  margin-top: var(--space-3);
+  margin-top: var(--space-4);
 }
 .theme-swatch {
   width: 44px; height: 44px;
@@ -706,6 +707,7 @@ body[data-dark-proto] .platform-row svg { color: rgba(233, 241, 250, 0.75); }
    Platforms
    ========================================================================== */
 .platforms { padding: var(--space-6) 0; text-align: center; }
+.platforms h2 { margin-top: var(--space-2); }
 .platform-row {
   margin-top: var(--space-4);
   display: flex;

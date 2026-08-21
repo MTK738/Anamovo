@@ -544,8 +544,8 @@ body[data-dark-proto] .platform-row svg { color: rgba(233, 241, 250, 0.75); }
 /* ---- Watch device frame: rounded-square case, no notch, real screenshots ---- */
 .watch-frame {
   position: relative;
-  width: 148px;
-  border-radius: 42px;
+  width: min(148px, 26vw);
+  border-radius: 28.4% / 23.7%;
   padding: 9px;
   background: linear-gradient(150deg, #1c3634, var(--pine-shadow) 42%, var(--pine-shadow-2));
   box-shadow:
@@ -554,7 +554,7 @@ body[data-dark-proto] .platform-row svg { color: rgba(233, 241, 250, 0.75); }
     inset 0 -2px 4px rgba(0, 0, 0, 0.4);
 }
 .watch-frame img {
-  border-radius: 33px;
+  border-radius: 25.4% / 20.8%;
   display: block;
   width: 100%;
   height: auto;
@@ -565,8 +565,9 @@ body[data-dark-proto] .platform-row svg { color: rgba(233, 241, 250, 0.75); }
   display: flex;
   align-items: flex-end;
   gap: 16px;
+  max-width: 100%;
 }
-.watch-frame-row .watch-frame:nth-child(2) { width: 180px; transform: translateY(-10px); }
+.watch-frame-row .watch-frame:nth-child(2) { width: min(180px, 32vw); transform: translateY(-10px); }
 .watch-frame-caption {
   margin-top: 0.6rem;
   text-align: center;
@@ -904,4 +905,5 @@ body[data-dark-proto] .platform-row svg { color: rgba(233, 241, 250, 0.75); }
 @media (max-width: 560px) {
   .pill-badge { display: none; }
   .platform-row { gap: var(--space-3); }
+  .watch-frame-row { gap: 8px; }
 }
